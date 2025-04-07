@@ -31,9 +31,3 @@
     button:hover {
       background-color: #45a049;
     }
-    .back-button {
-      background-color: #f44336; /* 戻るボタンは赤 */
-    }
-    .back-button:hover {
-      background-color: #e53935;
-    }
