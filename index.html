@@ -4,55 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>さクラサーバー 状態</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #333;
-    }
-    #status {
-      font-size: 20px;
-      margin-top: 20px;
-    }
-    #status.online {
-      color: green;
-    }
-    #status.offline {
-      color: red;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>さクラサーバー状況</h1>
   <p id="status">読み込み中...</p>
-
-  <script>
-    // サーバーステータス取得のAPI URL
-    const apiUrl = 'https://api.mcsrvstat.us/2/play.kotoca.net'; // 友達のサーバードメインをここに入れる
-
-    // APIからサーバーステータスを取得
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => {
-        const statusElement = document.getElementById('status');
-        
-        // サーバーがオンラインかオフラインかの判定
-        if (data.online) {
-          statusElement.classList.add('online');
-          statusElement.innerText = `オンライン 現在の人数: ${data.players.online}人 / 最大人数: ${data.players.max}人 / MOTD 参加メッセージ: ${data.motd.clean}`;
-        } else {
-          statusElement.classList.add('offline');
-          statusElement.innerText = data.message || 'オフラインです';
-        }
-      })
-      .catch(() => {
-        document.getElementById('status').innerText = '404Not Found エラーが発生しました サーバーに接続できませんでした';
-      });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
