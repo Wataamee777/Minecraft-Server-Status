@@ -1,1 +1,20 @@
-
+   body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    #status {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    #status.online {
+      color: green;
+    }
+    #status.offline {
+      color: red;
+    }
