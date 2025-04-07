@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MinecraftサーバーのJSONデータ表示</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    pre {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      white-space: pre-wrap; /* 長いJSONも改行して表示 */
+      word-wrap: break-word; /* 単語が画面を越えないように */
+      max-width: 100%;
+      overflow-x: auto; /* 横スクロール可能 */
+    }
+  </style>
+</head>
+<body>
+  <h1>MinecraftサーバーのJSONデータ</h1>
+  <pre id="json-display">読み込み中...</pre>
+
+  <script>
+    // APIからサーバーステータスを取得
+    fetch('https://api.mcsrvstat.us/2/play.kotoca.net')
+      .then(res => res.json())
+      .then(data => {
+        // JSONデータをpreタグ内に表示
+        document.getElementById('json-display
