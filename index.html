@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>さクラ鯖 統計</title>
+  <title>さクラ鯖ステータス</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>さクラ鯖状況</h1>
-  <p id="status">読み込み中...</p>
+  <h1>さクラ鯖ステータス</h1>
+  
+  <div id="status" class="status">
+    サーバーステータスを読み込み中...
+  </div>
+  
+  <div id="playersInfo">
+    <p id="players">現在の人数: 0</p>
+    <p id="maxPlayers">最大人数: 0</p>
+    <p id="motd">参加メッセージ: 不明</p>
+  </div>
+  
+  <div id="playersList">
+    
+  </div>
+
+  <button id="checkStatusButton">サーバー状態を確認</button>
+
   <script src="script.js"></script>
-  <button onclick="window.location.href='https://minecraft.sakurahp.f5.si/api/'">jsonに移動</button>
 </body>
 </html>
