@@ -1,5 +1,10 @@
+@font-face {
+  font-family: 'minecraft';  /* フォントの名前を指定 */
+  src: url('minecraft.ttf') format('truetype'); /* TTFファイルへのパス */
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: minecraft, sans-serif;
   background-color: #f0f0f0;
   margin: 0;
   padding: 20px;
