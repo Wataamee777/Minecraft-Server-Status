@@ -1,51 +1,41 @@
-document.getElementById('checkStatusButton').addEventListener('click', () => {
-  const apiUrl = 'https://api.mcsrvstat.us/2/play.kotoca.net'; 
+const apiUrl = 'https://api.mcsrvstat.us/2/play.kotoca.net';
 
-  fetch(apiUrl)
-    .then(res => res.json())
-    .then(data => {
-      const statusElement = document.getElementById('status');
-      const playersElement = document.getElementById('players');
-      const maxPlayersElement = document.getElementById('maxPlayers');
-      const motdElement = document.getElementById('motd');
-      const playersListElement = document.getElementById('playersList');
+fetch(apiUrl)
+  .then(res => res.json())
+  .then(data => {
+    const statusEl = document.getElementById('status');
+    const playersEl = document.getElementById('players');
+  const motd = data.motd?.clean || "取得できませんでした";
 
-      if (data.online) {
-        statusElement.classList.add('online');
-        statusElement.innerText = `オンライン 現在の人数: ${data.players.online}人 / 最大人数: ${data.players.max}人`;
-        playersElement.innerText = `現在の人数: ${data.players.online}`;
-        maxPlayersElement.innerText = `最大人数: ${data.players.max}`;
-        motdElement.innerText = `参加メッセージ: ${data.motd.clean}`;
+    if (data.online) {
+   statusEl.textContent = `オンライン - ${data.players.online}人 / ${data.players.max}人\nMOTD: ${motd}`;
+      statusEl.classList.add('online');
 
-        playersListElement.innerHTML = ''; // プレイヤーリストをリセット
+      if (data.players.list && data.players.list.length > 0) {
         data.players.list.forEach(player => {
-          const playerUUID = player.id; 
-          const playerSkinURL = `https://crafatar.com/avatars/${playerUUID}?size=50`; 
+          fetch(`https://api.mojang.com/users/profiles/minecraft/${player}`)
+            .then(res => res.json())
+            .then(profile => {
+              const uuid = profile.id;
+              const skinUrl = `https://crafatar.com/avatars/${uuid}?overlay`;
 
-          const playerElement = document.createElement('div');
-          playerElement.classList.add('player');
-          
-          const playerImage = document.createElement('img');
-          playerImage.src = playerSkinURL; 
-
-          const playerName = document.createElement('p');
-          playerName.innerText = player.name;
-
-          playerElement.appendChild(playerImage);
-          playerElement.appendChild(playerName);
-
-          playersListElement.appendChild(playerElement);
+              const div = document.createElement('div');
+              div.className = 'skin';
+              div.innerHTML = `
+                <img src="${skinUrl}" alt="${player}">
+                <div>${player}</div>
+              `;
+              playersEl.appendChild(div);
+            });
         });
       } else {
-        statusElement.classList.add('offline');
-        statusElement.innerText = 'オフラインです';
-        playersElement.innerText = '現在の人数: 0';
-        maxPlayersElement.innerText = '最大人数: 0';
-        motdElement.innerText = '参加メッセージ: 不明';
-        playersListElement.innerHTML = ''; 
+        playersEl.textContent = 'オンラインのプレイヤー情報は取得できませんでした';
       }
-    })
-    .catch(() => {
-      document.getElementById('status').innerText = 'エラーが発生しました サーバーに接続できませんでした';
-    });
-});
+    } else {
+      statusEl.textContent = 'オフライン';
+      statusEl.classList.add('offline');
+    }
+  })
+  .catch(err => {
+    document.getElementById('status').textContent = 'サーバー情報の取得に失敗しました';
+  });
