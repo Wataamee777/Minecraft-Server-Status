@@ -15,14 +15,6 @@ h1 {
   margin-top: 20px;
 }
 
-#status.online {
-  color: green;
-}
-
-#status.offline {
-  color: red;
-}
-
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -61,4 +53,13 @@ button:hover {
 .player p {
   margin-top: 5px;
   color: #333;
+}
+
+/* サーバーのオンライン・オフライン表示用 */
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
 }
