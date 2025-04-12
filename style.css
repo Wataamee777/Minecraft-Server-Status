@@ -2,6 +2,11 @@
   font-family: 'minecraft';  /* フォントの名前を指定 */
   src: url('minecraft.ttf') format('truetype'); /* TTFファイルへのパス */
 }
+@font-face {
+  font-family: 'minecraft2';  /* フォントの名前を指定 */
+  src: url('minecraft2.ttf') format('truetype'); /* TTFファイルへのパス */
+}
+
 
 body {
   font-family: minecraft;
@@ -10,7 +15,10 @@ body {
   padding: 20px;
   text-align: center;
 }
-
+.Nocopy {
+  font-size: 50px;
+  font-family: "minecraft2"; 
+}
 h1 {
   color: #333;
 }
