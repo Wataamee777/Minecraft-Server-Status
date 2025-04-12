@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: minecraft ;
+  font-family: minecraft;
   background-color: #f0f0f0;
   margin: 0;
   padding: 20px;
@@ -15,56 +15,30 @@ h1 {
   color: #333;
 }
 
-#status {
-  font-size: 20px;
-  margin-top: 20px;
+#status.online {
+  color: green;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  margin: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* プレイヤーリスト */
-#playersList {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+#status.offline {
+  color: red;
 }
 
 .player {
+  display: inline-block;
   margin: 10px;
-  text-align: center;
+}
+#motd {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
 }
 
 .player img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  object-fit: cover;
 }
 
 .player p {
-  margin-top: 5px;
-  color: #333;
-}
-
-/* サーバーのオンライン・オフライン表示用 */
-.online {
-  color: green;
-}
-
-.offline {
-  color: red;
+  margin: 5px 0 0;
 }
