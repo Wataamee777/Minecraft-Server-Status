@@ -25,5 +25,15 @@
   <div id="playersList"></div>
 
   <script src="script.js"></script>
+  <button onclick="confirmRedirect()">移動する</button>
+
+<script>
+  function confirmRedirect() {
+    if (confirm("jsonデータページサイトに飛びます。別サイトですが同じ作成者です。")) {
+      window.location.href = "https://minecraft.sakurahp.f5.si/api/"; // 移動先URLをここに
+    }
+  }
+</script>
+
 </body>
 </html>
