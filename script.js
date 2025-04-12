@@ -14,7 +14,7 @@ async function fetchServerStatus() {
   document.getElementById("motd").textContent = `MOTD: ${data.motd?.clean?.join(" ") || "なし"}`;
 
   // サーバーアイコン
-  if (data.servericon) {
+  if (data.icon) {
     document.getElementById("icon").src = data.servericon;
   }
 
