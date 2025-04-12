@@ -29,7 +29,7 @@ async function fetchServerStatus() {
 
   if (data.players && data.players.online > 0) {
     document.getElementById("playersOnline").textContent = `プレイヤー数: ${data.players.online}/${data.players.max}`;
-    if (data.players.list) {
+    if (data.players.List) {
       // OPプレイヤー情報を取得
       const opRes = await fetch("https://minecraft.sakurahp.f5.si/player/oplist.json"); // OPプレイヤーのリストが返されるAPI
       const opData = await opRes.json();
