@@ -1,5 +1,5 @@
  // APIからサーバーステータスを取得
-    fetch('https://api.mcsrvstat.us/2/play.kotoca.net')
+    fetch('https://api.mcsrvstat.us/3/play.kotoca.net')
       .then(res => res.json())
       .then(data => {
         // JSONデータをpreタグ内に表示
