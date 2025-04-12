@@ -15,7 +15,7 @@ async function fetchServerStatus() {
 
   // サーバーアイコン
   if (data.icon) {
-    document.getElementById("icon").src = data.servericon;
+    document.getElementById("icon").src = data.icon;
   }
 
   // サーバーの場所 (IPから推定)
