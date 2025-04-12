@@ -14,8 +14,8 @@ async function fetchServerStatus() {
   document.getElementById("motd").textContent = `MOTD: ${data.motd?.clean?.join(" ") || "なし"}`;
 
   // サーバーアイコン
-  if (data.icon) {
-    document.getElementById("icon").src = data.icon;
+  if (data.servericon) {
+    document.getElementById("icon").src = data.servericon;
   }
 
   // サーバーの場所 (IPから推定)
