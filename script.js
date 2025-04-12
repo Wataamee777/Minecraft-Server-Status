@@ -30,6 +30,11 @@ async function fetchServerStatus() {
   if (data.players && data.players.online > 0) {
     document.getElementById("playersOnline").textContent = `プレイヤー数: ${data.players.online}/${data.players.max}`;
     if (data.players.list) {
+      // OPプレイヤー情報を取得
+      const opRes = await fetch("https://your-server.com/api/oplist"); // OPプレイヤーのリストが返されるAPI
+      const opData = await opRes.json();
+      const opPlayers = opData.op_players || [];
+
       data.players.list.forEach(player => {
         const playerDiv = document.createElement("div");
         playerDiv.className = "player";
@@ -39,6 +44,11 @@ async function fetchServerStatus() {
 
         const name = document.createElement("p");
         name.textContent = player;
+
+        // OPプレイヤーは青色にする
+        if (opPlayers.includes(player)) {
+          name.style.color = "blue";  // OPプレイヤーは青色
+        }
 
         playerDiv.appendChild(img);
         playerDiv.appendChild(name);
