@@ -4,18 +4,26 @@
   <meta charset="UTF-8">
   <title>さクラ鯖ステータス</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
   <h1>サーバーステータス</h1>
-  <div id="status">読み込み中...</div>
-  <div id="motd"></div>
-  <div id="version"></div>
-  <div id="protocol"></div>
-  <div id="software"></div>
-  <div id="ip"></div>
-  <div id="players"></div>
-  <div id="dns"></div>
-  <div id="record"></div>
+  <div id="serverInfo">
+    <img id="icon" alt="Server Icon" width="64" height="64"><br>
+    <div id="host"></div>
+    <div id="status" class=""></div>
+    <div id="cache"></div>
+    <div id="bedrock"></div>
+    <div id="version"></div>
+    <div id="ip"></div>
+    <div id="port"></div>
+    <div id="location"></div>
+    <div id="playersOnline"></div>
+    <div id="motd"></div>
+  </div>
+
+  <div id="playersList"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
