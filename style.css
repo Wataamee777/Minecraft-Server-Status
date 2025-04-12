@@ -2,11 +2,6 @@
   font-family: 'minecraft';  /* フォントの名前を指定 */
   src: url('minecraft.ttf') format('truetype'); /* TTFファイルへのパス */
 }
-@font-face {
-  font-family: 'minecraft2';  /* フォントの名前を指定 */
-  src: url('minecraft2.ttf') format('truetype'); /* TTFファイルへのパス */
-}
-
 
 body {
   font-family: minecraft;
@@ -49,4 +44,12 @@ h1 {
 
 .player p {
   margin: 5px 0 0;
+}
+.op-player {
+  color: #007bff; /* 青色 */
+  font-weight: bold;
+}
+
+.bedrock-player {
+  opacity: 0.7;
 }
