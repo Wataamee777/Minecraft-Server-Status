@@ -1,7 +1,7 @@
 async function fetchServerStatus() {
   try {
     const [serverRes, opRes] = await Promise.all([
-      fetch("https://api.mcsrvstat.us/3/play.kotoca.net"),
+      fetch("https://api.mcsrvstat.us/3/mc.sakurahp.f5.si"),
       fetch("/player/oplist.json")
     ]);
 
